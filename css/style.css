@@ -1,0 +1,305 @@
+body{
+  background: pink;
+}
+/* ログイン */
+.login_form{
+  width: 500px;
+  margin: 0 auto;
+}
+/* ログイン */
+/* --header */
+header{
+  background-color: #fffc4c;
+  border-bottom: 5px solid #1d151a;
+  border-top: 5px solid #1d151a;
+}
+
+header a{
+  color: #fc3dfc;
+}
+
+.brand a{
+  text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+             -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+             0px 1px 0 #FFF,  0-1px 0 #FFF,
+             -1px 0 0 #FFF, 1px 0 0 #FFF;
+}
+
+.navigation{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1300px;
+  padding: 10px 0 40px;
+  margin: 0 auto;
+}
+
+.brand{
+  margin-right: auto;
+  margin-left: 15px;
+}
+
+.menu{
+  margin-right: 15px;
+}
+
+ul{
+  display: flex;
+  padding-left: 0;
+}
+
+li{
+  list-style: none;
+  margin-left: 15px;
+  padding-left: 15px;
+  line-height: 1;
+  border-left: 1px solid #555;
+}
+
+li:first-child{
+  border-left: 0;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.menu_box{
+  max-width: 1200px;
+  margin: 40px auto 0;
+  text-align: right;
+}
+
+/* --header */
+
+h1{
+  font-family:  'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+  font-size: 45px;
+}
+h2{
+  font-size: 17px;
+  margin: 0;
+}
+
+.article_box{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.article_inner-box{
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 2px solid #1d151a;
+  box-shadow: 0 7px 21px rgba(0, 0, 0, 0.36);
+  color: #3c3c3c;
+  margin: 0 50px 50px 0;
+  padding: 20px 20px 22px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+  width: calc(33.3333333% - 34px);
+  background-color: snow;
+}
+.article_inner-box:nth-child(3n){
+  margin-right: 0;
+}
+
+img{
+  max-width: 100%;
+  border: 5px solid pink;
+}
+
+.article-title_box{
+  height: 50px;
+}
+
+.article_inner-picture{
+  text-align: center;
+}
+
+.brbr{
+  display: none;
+}
+
+
+/* detail */
+.article_iframe{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+.article_iframe iframe{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+h1{
+  font-size: 45px;
+}
+
+.detail_text{
+  margin:30px 0;
+}
+
+/* detail--return */
+.return{
+  text-align: center;
+  display:block;
+  margin: 40px auto 0;
+  padding-bottom: 50px;
+}
+
+.return a{
+  padding: 15px 65px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  background-color: white;
+}
+
+/* ページング */
+.fas{
+  color: #fc3dfc;
+}
+
+/* detail--recommend */
+.recommend{
+  max-width: 1280px;
+  margin: 20px auto 50px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.recommend_title-box{
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.recommend_title{
+  font-size: 26px;
+}
+
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+/* / 共通ヘッダー// */
+  .brbr{
+    display: block;
+  }
+  h1{
+    font-size: 43px;
+  }
+  li{
+    padding-left:10px;
+    margin-left: 10px;
+  }
+  li a{
+    font-size: 14px;
+  }
+  .menu{
+    position: relative;
+    top: -30px;
+  }
+  .navigation{
+    padding: 10px 0;
+  }
+/* 共通ヘッダー */
+.article-title_box{
+  height: 55px;
+}
+.article-title_box a{
+  font-size: 15px;
+}
+.article_inner-box {
+  width: calc(50% - 50px / 2);
+}
+
+.article_inner-box:nth-child(3n) {
+  margin-right: 50px;
+}
+
+.article_inner-box:nth-child(2n) {
+  margin-right: 0;
+}
+
+/* detail--recommend */
+.recommend_box2{
+  display: none;
+}
+  }
+@media (max-width: 768px) {
+/* 共通ヘッダー */
+  h1{
+    font-size: 30px;
+  }
+  .menu{
+    position: relative;
+    top: -20px;
+  }
+  li{
+    padding-left:5px;
+    margin-left: 5px;
+    border-left: none;
+  }
+  li a{
+    font-size: 11px;
+  }
+/* 共通ヘッダー */
+/* detail--recommend */
+.recommend_box3{
+  display: none;
+}
+}
+@media (max-width: 576px) {
+/* 共通ヘッダー */
+  .navigation{
+    display: block;
+    height: 120px;
+  }
+  .menu{
+    padding-top: 25px;
+  }
+  ul{
+  justify-content: flex-end;
+  margin-bottom: 0;
+  }
+  li{
+    border-left: 1px solid #555;
+  }
+  li a{
+    font-size: 15px;
+  }
+/* 共通ヘッダー */
+.article_box{
+  display: block;
+}
+.article_inner-box{
+  width: 100%;
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.article_inner-picture{
+  text-align: left;
+}
+.article-title_box {
+  height: auto;
+  margin-bottom: 5px;
+}
+.return a{
+  padding: 15px 35px;
+}
+
+/* detail--recommend */
+.recommend{
+  display: block;
+  text-align: center;
+}
+.recommend_sp{
+  margin-bottom: 10px;
+}
+}
