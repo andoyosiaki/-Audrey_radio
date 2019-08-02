@@ -1,8 +1,9 @@
 <?php
 require "dbconect.php";
 require "function/entity.php";
-$asc= 'DESC';
 
+//降順昇順切り替え
+$asc= 'DESC'; //デフォルトはdescに指定しておく。
 if(isset($_GET['sort'])){
   if($_GET['sort']==='asc'){
     $asc = 'ASC';

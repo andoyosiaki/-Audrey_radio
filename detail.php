@@ -2,21 +2,31 @@
 require "dbconect.php";
 require "function/entity.php";
 
-
 $onsens = $db->prepare('SELECT * FROM youtube WHERE id=?');
 $onsens->execute(array($_REQUEST['id']));
 $youtube= $onsens->fetch();
 
 
-require "function/maxNum.php";
-require "function/random.php";
+//最大投稿数を取得
+$pages = $db->query('SELECT COUNT(*) as cnt FROM youtube');
+$page = $pages->fetch();
+$maxNum = $page['cnt'];
+
+$random = range(1,$maxNum); //１から最大投稿数内の数字を配列で出力
+shuffle($random); //その配列をシャッフルさせて、最初の５個だけ使用
+ $rand_a = $random[0];
+ $rand_b = $random[1];
+ $rand_c = $random[2];
+ $rand_d = $random[3];
+ $rand_e = $random[4];
+
  ?>
  <html lang="ja">
  <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" itemprop="description" content="オードリーのラジオ『オードリーのオールナイトニッポン』のyoutube文字起こし動画をまとめています。" />
-  <title><?php echo h($youtube['name']); ?>　オードリー文字起こしまとめ </title>
+  <title><?php echo $youtube['name']; ?>　オードリー文字起こしまとめ </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -45,7 +55,7 @@ require "function/random.php";
    <div class="container detail_container">
      <div class="detail_text">
        <h2><?php echo h($youtube['name']); ?></h2>
-       <?php  $id = $youtube['id']; ?>
+       <?php  $id = h($youtube['id']); ?>
      </div>
      <div class="article_iframe">
        <iframe width="240" height="315" src="https://www.youtube.com/embed/<?php echo h($youtube['url']); ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -53,11 +63,11 @@ require "function/random.php";
     </div>
     <div class="return">
       <?php if($id >= 2): ?>
-        <a href="detail.php?id=<?php echo h($id - 1); ?>"><i class="fas fa-arrow-circle-left fa-lg"></i></a>
+        <a href="detail.php?id=<?php echo ($id - 1); ?>"><i class="fas fa-arrow-circle-left fa-lg"></i></a>
       <?php endif; ?>
       <a href="front.php"><i class="fas fa-home fa-lg"></i></a>
       <?php if($id != $maxNum): ?>
-        <a href="detail.php?id=<?php echo h($id + 1); ?>"><i class="fas fa-arrow-circle-right fa-lg"></i></a>
+        <a href="detail.php?id=<?php echo ($id + 1); ?>"><i class="fas fa-arrow-circle-right fa-lg"></i></a>
       <?php endif; ?>
     </div>
     <div class="recommend">
@@ -65,19 +75,19 @@ require "function/random.php";
         <h3 class="recommend_title">おすすめ動画</h3>
       </div>
       <div class="recommend_box1 recommend_sp">
-        <a href="detail.php?id=<?php echo h($rand_a); ?>"><img src="img/<?php echo h($rand_a); ?>.jpg" alt=""></a>
+        <a href="detail.php?id=<?php echo $rand_a; ?>"><img src="img/<?php echo $rand_a; ?>.jpg" alt=""></a>
       </div>
       <div class="recommend_box1 recommend_sp">
-        <a href="detail.php?id=<?php echo h($rand_b); ?>"><img src="img/<?php echo h($rand_b); ?>.jpg" alt=""></a>
+        <a href="detail.php?id=<?php echo $rand_b; ?>"><img src="img/<?php echo $rand_b; ?>.jpg" alt=""></a>
       </div>
       <div class="recommend_box1 recommend_sp">
-        <a href="detail.php?id=<?php echo h($rand_c); ?>"><img src="img/<?php echo h($rand_c); ?>.jpg" alt=""></a>
+        <a href="detail.php?id=<?php echo $rand_c; ?>"><img src="img/<?php echo $rand_c; ?>.jpg" alt=""></a>
       </div>
       <div class="recommend_box3">
-        <a href="detail.php?id=<?php echo h($rand_d); ?>"><img src="img/<?php echo h($rand_d); ?>.jpg" alt=""></a>
+        <a href="detail.php?id=<?php echo $rand_d; ?>"><img src="img/<?php echo $rand_d; ?>.jpg" alt=""></a>
       </div>
       <div class="recommend_box2">
-        <a href="detail.php?id=<?php echo h($rand_e); ?>"><img src="img/<?php echo h($rand_e); ?>.jpg" alt=""></a>
+        <a href="detail.php?id=<?php echo $rand_e; ?>"><img src="img/<?php echo $rand_e; ?>.jpg" alt=""></a>
       </div>
     </div>
  </body>

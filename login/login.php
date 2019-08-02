@@ -4,24 +4,24 @@ session_start();
 
 if(!empty($_POST)){
 	if($_POST['name'] !='' && $_POST['password'] !=""){
-		$login = $db->prepare('SELECT * FROM users WHERE email=? AND password=?');
+		$login = $db->prepare('SELECT * FROM users WHERE name=? AND password=?');
 		$login->execute(array(
 			$_POST['name'],
-			$_POST['password']
+			sha1($_POST['password'])
 		));
 		$me = $login->fetch();
-
+var_dump($me);
 		if($me){
 			$_SESSION['name']=$me['name'];
-			$_SESSION['me']=$_POST['name'];
-			$_SESSION['time']=time();
 			header('Location: 	index.php');exit();
-			session_unset();
+			// echo "ここ";
 		}else {
 			header('Location: ../front.php');exit();
+			// echo "ここだよ";
 		}
 	}else {
 		 header('Location: ../front.php');exit();
+		 // echo "ここす";
 	}
 }
 
