@@ -21,7 +21,6 @@ if(!empty($_POST)){
 		 header('Location: ../front.php');exit();
 	}
 }
-var_dump(sha1('test'));
   ?>
 	<!DOCTYPE html>
 	<html lang="ja">
