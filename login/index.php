@@ -27,10 +27,10 @@ if(isset($_POST) && is_numeric($_POST['id'])){
 if(isset($_FILES['image'])){
 
   $filename = $_FILES['image']['name'];
-  $ent = substr($filename,-4);
+  $ext = substr($filename,-4);
 
   if($ent ==='.jpg'||$ent ==='.png'){
-    move_uploaded_file($_FILES['image']['tmp_name'],'../img/'.($maxNum+1).$ent);
+    move_uploaded_file($_FILES['image']['tmp_name'],'../img/'.($maxNum+1).$ext);
     $filepath = 'img/'.$filename;
   }else {
     echo ".jpgか.pngを選択";

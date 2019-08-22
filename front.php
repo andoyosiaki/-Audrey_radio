@@ -12,7 +12,7 @@ if(isset($_GET['sort'])){
     $asc='DESC';
   }
 }
-$onsens= $db->query("SELECT * FROM youtube ORDER BY id " . $asc . "");
+$audrey = $db->query("SELECT * FROM youtube ORDER BY id " . $asc . "");
 
 ?>
 <html lang="ja">
@@ -20,7 +20,7 @@ $onsens= $db->query("SELECT * FROM youtube ORDER BY id " . $asc . "");
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="description" itemprop="description" content="オードリーのラジオ『オードリーのオールナイトニッポン』のyoutube文字起こし動画をまとめています。" />
- <title><?php echo h($youtube['name']); ?>　オードリー文字起こしまとめ </title>
+ <title>オードリー文字起こしまとめ</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -55,7 +55,7 @@ $onsens= $db->query("SELECT * FROM youtube ORDER BY id " . $asc . "");
    </form>
  </div>
   <article class="article_box">
-    <?php while($youtube = $onsens->fetch()): ?>
+    <?php while($youtube = $audrey->fetch()): ?>
       <div class="article_inner-box">
         <span>No<?php echo h($youtube['id']); ?>.</span>
         <div class="article-title_box">
