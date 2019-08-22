@@ -10,48 +10,34 @@ if(!empty($_POST)){
 			sha1($_POST['password'])
 		));
 		$me = $login->fetch();
-var_dump($me);
+
 		if($me){
 			$_SESSION['name']=$me['name'];
 			header('Location: 	index.php');exit();
-			// echo "ここ";
 		}else {
 			header('Location: ../front.php');exit();
-			// echo "ここだよ";
 		}
 	}else {
 		 header('Location: ../front.php');exit();
-		 // echo "ここす";
 	}
 }
-
+var_dump(sha1('test'));
   ?>
 	<!DOCTYPE html>
 	<html lang="ja">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Complete Bootstrap 4 Website Layout</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-		<script type="text/javascript" src="slick/slick.min.js"></script>
-		<script type="text/javascript" src="inview/jquery.inview.min.js"></script>
-		<script src="rellax/rellax.min.js"></script>
-		<link rel="stylesheet" href="slick/slick.css">
-		<link rel="stylesheet" href="slick/slick-theme.css">
-		<link rel="stylesheet" href="animate/animate.min.css">
-		<link href="css/style.css" rel="stylesheet">
+		<title>ログイン</title>
+		<link href="../css/style.css" rel="stylesheet">
 		<script src="js/main.js"></script>
 	</head>
 	<body>
-	<div class="login_form">
+	<div class="form_section">
 		<form class="" action="" method="post">
 			<p>管理人専用</p>
-			<input type="text" name="name" value="" placeholder="adress"><br>
-			<input type="password" name="password" value="" placeholder="password"><br>
+			<p>ID:test <br>PASS:test</p>
+			<input type="text" name="name" value="" placeholder="ID"><br>
+			<input type="password" name="password" value="" placeholder="PASS"><br>
 			<input type="submit" value="送信">
 		</form>
 	</div>

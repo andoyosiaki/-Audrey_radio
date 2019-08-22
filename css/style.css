@@ -1,12 +1,13 @@
 body{
   background: pink;
 }
-/* ログイン */
-.login_form{
+/* ログイン・投稿画面 */
+.form_section{
   width: 500px;
   margin: 0 auto;
 }
 /* ログイン */
+
 /* --header */
 header{
   background-color: #fffc4c;
@@ -182,6 +183,7 @@ h1{
 .recommend_title{
   font-size: 26px;
 }
+
 
 
 /*---Media Queries --*/

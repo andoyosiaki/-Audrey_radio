@@ -18,9 +18,8 @@ if(isset($_POST) && is_numeric($_POST['id'])){
    $statement = $db->prepare('INSERT INTO youtube SET id=?,name=?,url=?');
    $statement->execute(array($id,$cut_name,$y_url));
    header('Location: ../front.php');
-}else {
-  echo "失敗";
 }
+
 
 
 //画像のフォルダへの保存処理
@@ -51,17 +50,27 @@ if($_SESSION){
 }
 
  ?>
+ <!DOCTYPE html>
+ <html lang="ja">
+ <head>
+   <meta charset="utf-8">
+   <title>投稿画面</title>
+   <link href="../css/style.css" rel="stylesheet">
+   <script src="js/main.js"></script>
+ </head>
 
 
 
-<a href="../front.php">一覧</a>
-
-
-<form class="" action="index.php" method="post" enctype="multipart/form-data">
-	<input type="text" name="url" value="" placeholder="url" size="50"><br>
-	<input type="text" name="name" value="" placeholder="題名" size="50"><br>
-	<input type="text" name="id" value="" placeholder="<?php echo "次は".($maxNum+1).'を指定。'; ?>"><br>
-  <input type="file" name="image" value="" placeholder="写真">
-	<button type="submit" name="button">送信</button>
-	</div>
-</form>
+<body>
+  <div class="form_section">
+    <a href="../front.php">一覧に戻る</a>
+    <form class= action="index.php" method="post" enctype="multipart/form-data">
+    	<input type="text" name="url" value="" placeholder="url" size="50"><br>
+    	<input type="text" name="name" value="" placeholder="題名" size="50"><br>
+    	<input type="text" name="id" value="" placeholder="<?php echo "次は".($maxNum+1).'を指定。'; ?>"><br>
+      <input type="file" name="image" value="" placeholder="写真">
+    	<button type="submit" name="button">送信</button>
+    	</div>
+    </form>
+  </div>
+</body>
