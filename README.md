@@ -7,7 +7,7 @@
 
 アプリ名
 ====
-**<a href="https://3.kagome.xyz">オードリー文字起こしまとめ</a>**
+**<a href="https://3.kagome.xyz" target=”_blank”>オードリー文字起こしまとめ</a>**
 
 ## 簡単な説明
 youtubeにある「オードリー文字起こしまとめ」をまとめたアプリです。
