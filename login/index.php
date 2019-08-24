@@ -17,7 +17,6 @@ if(isset($_POST) && is_numeric($_POST['id'])){
 
    $statement = $db->prepare('INSERT INTO youtube SET id=?,name=?,url=?');
    $statement->execute(array($id,$cut_name,$y_url));
-   header('Location: ../front.php');
 }
 
 
@@ -28,9 +27,9 @@ if(isset($_FILES['image'])){
   $filename = $_FILES['image']['name'];
   $ext = substr($filename,-4);
 
-  if($ent ==='.jpg'||$ent ==='.png'){
+  if($ext ==='.jpg'||$ext ==='.png'){
     move_uploaded_file($_FILES['image']['tmp_name'],'../img/'.($maxNum+1).$ext);
-    $filepath = 'img/'.$filename;
+   header('Location: ../front.php');exit();
   }else {
     echo ".jpgか.pngを選択";
   }
@@ -67,7 +66,7 @@ if($_SESSION){
     <form class= action="index.php" method="post" enctype="multipart/form-data">
     	<input type="text" name="url" value="" placeholder="url" size="50"><br>
     	<input type="text" name="name" value="" placeholder="題名" size="50"><br>
-    	<input type="text" name="id" value="" placeholder="<?php echo "次は".($maxNum+1).'を指定。'; ?>"><br>
+      <input type="hidden" name="id" value="<?php echo ($maxNum+1); ?>">
       <input type="file" name="image" value="" placeholder="写真">
     	<button type="submit" name="button">送信</button>
     	</div>
