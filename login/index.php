@@ -8,7 +8,6 @@ $pages = $db->query('SELECT COUNT(*) as cnt FROM youtube');
 $page = $pages->fetch();
 $maxNum = $page['cnt'];
 
-
 //dbへの登録処理
 if(isset($_POST) && is_numeric($_POST['id'])){
   $id = $_POST['id'];
@@ -18,8 +17,6 @@ if(isset($_POST) && is_numeric($_POST['id'])){
    $statement = $db->prepare('INSERT INTO youtube SET id=?,name=?,url=?');
    $statement->execute(array($id,$cut_name,$y_url));
 }
-
-
 
 //画像のフォルダへの保存処理
 if(isset($_FILES['image'])){
