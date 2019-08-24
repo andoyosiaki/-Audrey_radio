@@ -29,7 +29,8 @@ youtubeにある「オードリー文字起こしまとめ」をまとめたア�
 使用ツール・ライブラリ
 * bootstrap4
 * MAMP
-* Atom Editor  
+* Atom Editor
+* fontawesome   
 
 
 ## 作った感想と今後の課題  
