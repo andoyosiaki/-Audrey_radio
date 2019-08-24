@@ -10,10 +10,10 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-CREATE DATABASE `test`;
-USE `TEST`;
+CREATE DATABASE `youtube`;
+USE `youtube`;
 --
--- Database: `test`
+-- Database: `youtube`
 --
 -- --------------------------------------------------------
 CREATE TABLE `users` (
